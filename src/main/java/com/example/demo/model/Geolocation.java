@@ -13,20 +13,20 @@ public class Geolocation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    Long deviceId;
-    Timestamp timestamp;
-    Double latitude;
-    Double longitude;
+    private Long deviceId;
+    private Timestamp timestamp;
+    private Double latitude;
+    private Double longitude;
 
     public Geolocation() {
     }
 
-    public Geolocation(Long deviceId, Double latitude, Double longitude) {
-        this.deviceId = deviceId;
-        this.timestamp = new Timestamp(System.currentTimeMillis());
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
+//    public Geolocation(Long deviceId, Double latitude, Double longitude) {
+//        this.deviceId = deviceId;
+//        this.timestamp = new Timestamp(System.currentTimeMillis());
+//        this.latitude = latitude;
+//        this.longitude = longitude;
+//    }
 
     public Long getId() {
         return id;
@@ -64,7 +64,7 @@ public class Geolocation {
         return timestamp;
     }
 
-    public void setTimestamp() {
+    public void setCurrentTimestamp() {
         this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 }

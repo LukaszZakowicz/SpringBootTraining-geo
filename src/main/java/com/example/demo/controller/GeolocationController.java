@@ -1,18 +1,22 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.GeolocationDto;
 import com.example.demo.model.Geolocation;
 import com.example.demo.service.GeolocationService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/geolocation")
+@RequestMapping("/api/geolocations")
 public class GeolocationController {
 
-    @Autowired
-    GeolocationService geolocationService;
+    private final GeolocationService geolocationService;
+
+    public GeolocationController(GeolocationService geolocationService) {
+        this.geolocationService = geolocationService;
+    }
 
     @GetMapping()
     public List<Geolocation> getAllGeolocations() {
@@ -25,8 +29,8 @@ public class GeolocationController {
 //    }
 
     @PostMapping()
-    public void addGeolocation(@RequestBody Geolocation geolocation) {
-        geolocationService.addGeolocation(geolocation);
+    public void addGeolocation(@Validated @RequestBody GeolocationDto geolocationDto) {
+        geolocationService.addGeolocation(geolocationDto);
     }
 
 }

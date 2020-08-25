@@ -1,0 +1,10 @@
+POST http://localhost:8888/api/geolocations
+Content-Type: application/json
+
+{
+  "deviceId": 12,
+  "latitude": 12,
+  "longitude": 22
+}
+
+###
